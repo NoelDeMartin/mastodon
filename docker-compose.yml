@@ -63,7 +63,6 @@ services:
       - redis
 
   sidekiq:
-    build: .
     image: ghcr.io/mastodon/mastodon:v4.3.2
     restart: always
     env_file: .env.production
