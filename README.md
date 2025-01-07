@@ -44,7 +44,7 @@ rm dump.sql
 
 # Exit docker shell...
 
-docker compose run web bundle exec rails db:migrate
+docker compose exec web bundle exec rails db:migrate
 rm dump.sql
 ```
 
