@@ -4,7 +4,7 @@ This repository holds the configuration to serve my instance-of-one Mastodon ser
 
 ## Deployment
 
-These instructions work to migrate an existing application, given that I was running the instance with a different setup for many years.
+These instructions work to migrate an existing application, given that I was running the instance with a different setup before creating this repository.
 
 Start with creating the directory:
 
