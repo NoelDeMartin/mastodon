@@ -68,6 +68,12 @@ You'll also need to configure a couple of cron jobs. Add the following to your u
 30 5 * * 1 /var/www/mastodon/prune-data.sh >> /var/log/cron-mastodon.log 2>> /var/log/cron-mastodon.log
 ```
 
+And this one to the admin user with `sudo crontab -e`:
+
+```
+0 5 * * 1 /var/www/mastodon/prune-accounts.sh >> /var/log/cron-mastodon.log 2>> /var/log/cron-mastodon.log
+```
+
 Finally, install the site in [nginx-agora](https://github.com/noelDeMartin/nginx-agora):
 
 ```sh
@@ -95,9 +101,7 @@ That should be all!
 
 ## Health checks
 
-Using the [prune-data.sh](./scripts/prune-data.sh) script should be enough to keep the system in check, but I've found Mastodon to be particularly storage heavy (at least for an instance-of-one). Previously, [I resorted to deleting all media manually](https://github.com/NoelDeMartin/mastodon/blob/e02f0e037bd777e560420742886914d26e6379f1/clear-accounts.sh), but it seems like new versions have improved storage management and that shouldn't be necessary any more.
-
-Still, once in a blue moon, I'll run some of these commands:
+Using the [prune-data.sh](./scripts/prune-data.sh) and [prune-accounts.sh](./scripts/prune-accounts.sh) scripts should be enough to keep the system in check, but once in a blue moon I'll run some of these commands:
 
 ```sh
 # Check server memory usage

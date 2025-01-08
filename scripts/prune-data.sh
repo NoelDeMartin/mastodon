@@ -9,7 +9,6 @@ docker compose -f /var/www/mastodon/docker-compose.yml exec -T web tootctl emoji
 docker compose -f /var/www/mastodon/docker-compose.yml exec -T web tootctl preview_cards remove
 docker compose -f /var/www/mastodon/docker-compose.yml exec -T web tootctl media remove
 docker compose -f /var/www/mastodon/docker-compose.yml exec -T web tootctl media remove --prune-profiles
-docker compose -f /var/www/mastodon/docker-compose.yml exec -T web tootctl media remove-orphans
 
 echo "[`date`] Mastodon data pruned!"
 echo ""
