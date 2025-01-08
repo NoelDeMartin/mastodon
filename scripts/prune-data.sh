@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 # crontab -e
-# 30 5 * * 1 /var/www/mastodon/prune-data.sh >> /var/log/cron-mastodon.log 2>> /var/log/cron-mastodon.log
+# 30 5 * * 1 /var/www/mastodon/scripts/prune-data.sh >> /var/log/cron-mastodon.log 2>> /var/log/cron-mastodon.log
 
 echo "[`date`] Pruning mastodon data..."
 docker compose -f /var/www/mastodon/docker-compose.yml exec -T web tootctl accounts prune

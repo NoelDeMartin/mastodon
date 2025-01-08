@@ -65,13 +65,13 @@ sudo certbot certonly -d noeldemartin.social --standalone
 You'll also need to configure a couple of cron jobs. Add the following to your user's crontab with `crontab -e` (no need to use sudo):
 
 ```
-30 5 * * 1 /var/www/mastodon/prune-data.sh >> /var/log/cron-mastodon.log 2>> /var/log/cron-mastodon.log
+30 5 * * 1 /var/www/mastodon/scripts/prune-data.sh >> /var/log/cron-mastodon.log 2>> /var/log/cron-mastodon.log
 ```
 
 And this one to the admin user with `sudo crontab -e`:
 
 ```
-0 5 * * 1 /var/www/mastodon/prune-accounts.sh >> /var/log/cron-mastodon.log 2>> /var/log/cron-mastodon.log
+0 5 * * 1 /var/www/mastodon/scripts/prune-accounts.sh >> /var/log/cron-mastodon.log 2>> /var/log/cron-mastodon.log
 ```
 
 Finally, install the site in [nginx-agora](https://github.com/noelDeMartin/nginx-agora):
@@ -94,7 +94,7 @@ command = "/var/www/mastodon/scripts/backup.sh"
 
 [store]
 name = "local"
-path = "/var/www/Backups/"
+path = "/var/www/Backups/mastodon"
 ```
 
 That should be all!

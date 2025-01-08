@@ -4,7 +4,7 @@
 # See https://github.com/mastodon/mastodon/issues/15195
 
 # sudo crontab -e
-# 0 5 * * 1 /var/www/mastodon/prune-data.sh >> /var/log/cron-mastodon.log 2>> /var/log/cron-mastodon.log
+# 0 5 * * 1 /var/www/mastodon/scripts/prune-accounts.sh >> /var/log/cron-mastodon.log 2>> /var/log/cron-mastodon.log
 
 echo "[`date`] Pruning mastodon accounts..."
 
