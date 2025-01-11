@@ -21,3 +21,9 @@
     background-size: cover;
     border-radius: var(--avatar-border-radius);
 }
+
+.account__avatar--loading {
+    background: url('/extra/broken.png') center;
+    background-size: cover;
+    border-radius: var(--avatar-border-radius);
+}
