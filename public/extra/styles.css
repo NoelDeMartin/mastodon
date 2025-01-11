@@ -1,3 +1,10 @@
+/*
+ * Fix broken avatars.
+ * --------------------------------------------------
+ * This is necessary because I remove external remote assets in order to
+ * reduce storage consumption. See scripts/prune-accounts.sh file for details.
+ */
+
 .account__avatar img {
     position: relative;
     color: transparent;
@@ -12,4 +19,5 @@
     left: 0;
     background: url('/extra/broken.png') center;
     background-size: cover;
+    border-radius: var(--avatar-border-radius);
 }
