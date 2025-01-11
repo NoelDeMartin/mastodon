@@ -23,7 +23,7 @@ services:
       - ./redis:/data
 
   web:
-    image: ghcr.io/mastodon/mastodon:v4.3.2
+    build: .
     restart: unless-stopped
     env_file: .env.production
     command: bundle exec puma -C config/puma.rb
@@ -42,6 +42,7 @@ services:
       - redis
     volumes:
       - ./public/system:/mastodon/public/system
+      - ./public/extra:/mastodon/public/extra
 
   streaming:
     image: ghcr.io/mastodon/mastodon-streaming:v4.3.2

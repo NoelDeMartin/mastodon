@@ -1,0 +1,15 @@
+.account__avatar img {
+    position: relative;
+    color: transparent;
+}
+
+.account__avatar img::before {
+    content: " ";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: url('/extra/broken.png') center;
+    background-size: cover;
+}
