@@ -101,9 +101,10 @@ That should be all!
 
 ## Updates
 
-In order to upgrade Mastodon's version, it should suffice with updating the version in [the Dockerfile](./Dockerfile) and updating the code in the server:
+In order to upgrade Mastodon's version, it should suffice with updating the version in [the Dockerfile](./Dockerfile) and updating the code in the server (also make sure to create a backup before proceeding!):
 
 ```sh
+rireki backup mastodon --force
 git pull
 docker compose build
 docker compose down
