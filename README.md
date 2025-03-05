@@ -99,6 +99,18 @@ path = "/var/www/Backups/mastodon"
 
 That should be all!
 
+## Updates
+
+In order to upgrade Mastodon's version, it should suffice with updating the version in [the Dockerfile](./Dockerfile) and updating the code in the server:
+
+```sh
+git pull
+docker compose build
+docker compose down
+docker compose run --rm web bundle exec rails db:migrate
+docker compose up -d
+```
+
 ## Health checks
 
 Using the [prune-data.sh](./scripts/prune-data.sh) and [prune-accounts.sh](./scripts/prune-accounts.sh) scripts should be enough to keep the system in check, but once in a blue moon I'll run some of these commands:
