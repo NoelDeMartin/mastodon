@@ -45,7 +45,7 @@ services:
       - ./public/extra:/mastodon/public/extra
 
   streaming:
-    image: ghcr.io/mastodon/mastodon-streaming:v4.5.1
+    image: ghcr.io/mastodon/mastodon-streaming:v4.5.3
     restart: unless-stopped
     env_file: .env.production
     command: node ./streaming/index.js
@@ -64,7 +64,7 @@ services:
       - redis
 
   sidekiq:
-    image: ghcr.io/mastodon/mastodon:v4.5.1
+    image: ghcr.io/mastodon/mastodon:v4.5.3
     restart: unless-stopped
     env_file: .env.production
     command: bundle exec sidekiq
