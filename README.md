@@ -105,11 +105,7 @@ In order to upgrade Mastodon's version, it should suffice with updating the vers
 
 ```sh
 rireki backup mastodon --force
-git pull
-docker compose build
-docker compose down
-docker compose run --rm web bundle exec rails db:migrate
-docker compose up -d
+./scripts/update.sh
 ```
 
 ## Health checks
