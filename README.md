@@ -102,7 +102,9 @@ In order to upgrade Mastodon's version, it should suffice with updating the vers
 
 ```sh
 rireki backup mastodon --force
+git pull
 ./scripts/update.sh
+./scripts/prepare-permissions.sh
 ```
 
 ## Health checks
