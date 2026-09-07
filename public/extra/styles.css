@@ -5,6 +5,13 @@
  * reduce storage consumption. See scripts/prune-accounts.sh file for details.
  */
 
+.account__avatar,
+.account__avatar--loading {
+    background: url('/extra/broken.png') center;
+    background-size: cover;
+    border-radius: var(--avatar-border-radius);
+}
+
 .account__avatar img {
     position: relative;
     color: transparent;
@@ -17,12 +24,6 @@
     right: 0;
     bottom: 0;
     left: 0;
-    background: url('/extra/broken.png') center;
-    background-size: cover;
-    border-radius: var(--avatar-border-radius);
-}
-
-.account__avatar--loading {
     background: url('/extra/broken.png') center;
     background-size: cover;
     border-radius: var(--avatar-border-radius);
