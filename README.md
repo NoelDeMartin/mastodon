@@ -62,26 +62,23 @@ You'll probably need to create new certificates:
 sudo certbot certonly -d noeldemartin.social --standalone
 ```
 
-You'll also need to configure a couple of cron jobs. Add the following to your user's crontab with `crontab -e` (no need to use sudo):
-
-```
-30 5 * * 1 /var/www/mastodon/scripts/prune-data.sh >> /var/log/cron-mastodon.log 2>> /var/log/cron-mastodon.log
-```
-
-And this one to the admin user with `sudo crontab -e`:
+You'll also need to configure a couple of cron jobs. Add the following to your user's crontab with `crontab -e`:
 
 ```
 0 5 * * 1 /var/www/mastodon/scripts/prune-accounts.sh >> /var/log/cron-mastodon.log 2>> /var/log/cron-mastodon.log
+30 5 * * 1 /var/www/mastodon/scripts/prune-data.sh >> /var/log/cron-mastodon.log 2>> /var/log/cron-mastodon.log
 ```
 
-Finally, install the site in [nginx-agora](https://github.com/noelDeMartin/nginx-agora):
+(You'll also want to make sure that the /var/log/cron-mastodon.log file exists and is writable by the crontab user)
+
+Finally, install the site in [nginx-agora](https://github.com/NoelDeMartin/nginx-agora):
 
 ```sh
 nginx-agora install ./nginx/noeldemartin.social.conf ./public mastodon
 nginx-agora enable mastodon
 ```
 
-And configure backups with [rireki](https://github.com/noelDeMartin/rireki) using the following config in `~/.rireki/projects/mastodon.conf`:
+And configure backups with [rireki](https://github.com/NoelDeMartin/rireki) using the following config in `~/.rireki/projects/mastodon.conf`:
 
 ```toml
 name = "mastodon"

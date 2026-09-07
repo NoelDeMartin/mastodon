@@ -3,13 +3,13 @@
 # Workaround for removing cached remote assets
 # See https://github.com/mastodon/mastodon/issues/15195
 
-# sudo crontab -e
+# crontab -e
 # 0 5 * * 1 /var/www/mastodon/scripts/prune-accounts.sh >> /var/log/cron-mastodon.log 2>> /var/log/cron-mastodon.log
 
 echo "[`date`] Pruning mastodon accounts..."
 
 # Delete cached assets
-rm /var/www/mastodon/public/system/cache -rf
+docker compose -f /var/www/mastodon/docker-compose.yml exec -T web rm -rf /mastodon/public/system/cache
 
 # Refresh some accounts I see often (please don't feel bad if you're not on this list 🙈)
 docker compose -f /var/www/mastodon/docker-compose.yml exec -T web tootctl accounts refresh VincentTunru@fosstodon.org

@@ -42,7 +42,7 @@ services:
       - redis
     volumes:
       - ./public/system:/mastodon/public/system
-      - ./public/extra:/mastodon/public/extra
+      - ./public/extra:/mastodon/public/extra:ro
 
   streaming:
     image: ghcr.io/mastodon/mastodon-streaming:v4.7.0
