@@ -2,6 +2,8 @@ services:
   db:
     restart: unless-stopped
     image: postgres:14-alpine
+    security_opt:
+      - no-new-privileges:true
     shm_size: 256mb
     networks:
       - internal_network
@@ -15,6 +17,8 @@ services:
   redis:
     restart: unless-stopped
     image: redis:7-alpine
+    security_opt:
+      - no-new-privileges:true
     networks:
       - internal_network
     healthcheck:
@@ -25,6 +29,8 @@ services:
   web:
     build: .
     restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
     env_file: .env.production
     command: bundle exec puma -C config/puma.rb
     networks:
@@ -45,6 +51,8 @@ services:
   streaming:
     image: ghcr.io/mastodon/mastodon-streaming:v4.7.1
     restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
     env_file: .env.production
     command: node ./streaming/index.js
     networks:
@@ -62,6 +70,8 @@ services:
   sidekiq:
     image: ghcr.io/mastodon/mastodon:v4.7.1
     restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
     env_file: .env.production
     command: bundle exec sidekiq
     depends_on:
