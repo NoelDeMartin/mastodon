@@ -49,7 +49,7 @@ services:
       - ./public/extra:/mastodon/public/extra:ro
 
   streaming:
-    image: ghcr.io/mastodon/mastodon-streaming:v4.7.1
+    image: ghcr.io/mastodon/mastodon-streaming:v4.7.2
     restart: unless-stopped
     security_opt:
       - no-new-privileges:true
@@ -68,7 +68,7 @@ services:
       - redis
 
   sidekiq:
-    image: ghcr.io/mastodon/mastodon:v4.7.1
+    image: ghcr.io/mastodon/mastodon:v4.7.2
     restart: unless-stopped
     security_opt:
       - no-new-privileges:true
